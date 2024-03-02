@@ -1,0 +1,151 @@
+.header {
+  overflow: hidden;
+}
+.header-top {
+  background: #ffb4ad;
+  padding: 0 115px;
+  display: flex;
+  min-height: 36px;
+  max-height: 36px;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+.header-top-left ul {
+  display: flex;
+  height: 100%;
+  border: none;
+  gap: 20px;
+}
+.header-top-left li {
+  border: none;
+  list-style: none;
+}
+.header-top-left li a {
+  display: block;
+  border: none;
+  color: white;
+  padding-top: 9px;
+  text-decoration: none;
+}
+.header-top-left li a:hover {
+  border: 1px solid #ffb4ad;
+  color: #4184f2;
+  border: none;
+}
+.header-top-right a {
+  display: block;
+  padding-top: 8px;
+  color: #ffb4ad;
+  background: white;
+  width: 1.5rem;
+  height: 1.5rem;
+  text-align: center;
+  background-size: 200%;
+  border-radius: 2rem;
+}
+.header-top-right a:hover {
+  border: 1px solid #ffb4ad;
+  background: #4184f2;
+}
+
+
+
+.header-bottom-logo img {
+  width: 4rem;
+  height: 3rem;
+}
+.header-bottom {
+  background: #e57cb9;
+  padding: 0 115px;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+}
+.header-bottom-right {
+  display: flex;
+}
+.header-bottom-left {
+  display: flex;
+}
+.header-bottom-dropdown {
+  float: left;
+  overflow: hidden;
+}
+.dropbtn,
+.header-bottom-redirect {
+  height: 52px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: black;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+.header-bottom-dropdown:hover .dropbtn,
+.header-bottom-redirect:hover {
+  cursor: pointer;
+  background-color: red;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.nav-dropdown {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+.nav-dropdown.hover {
+  background: #fff;
+}
+.header-bottom-dropdown:hover .dropdown-content {
+  display: block;
+}
+.header-bottom-redirect {
+  text-decoration: none;
+}
+.header-bottom-input {
+  display: block;
+  min-height: 52px;
+  border: none;
+  max-height: 100%;
+  overflow: hidden;
+}
+.header-bottom-input form {
+  min-height: 100%;
+  max-height: 100%;
+  display: flex;
+}
+.header-bottom-input input {
+  min-width: 300px;
+  padding: 0 20px;
+  border-radius: 2rem;
+  display: block;
+  border: none;
+  min-height: 100%;
+  max-height: 100%;
+}
+.header-bottom-search-btn {
+  min-width: 52px;
+  min-height: 52px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.header-bottom-login form{
+  height: 100%;
+}
+.header-bottom-login a {
+  display: block;
+}
