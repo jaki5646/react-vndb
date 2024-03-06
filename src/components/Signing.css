@@ -71,3 +71,9 @@ a.active {
     margin-top: 2rem;
     display: flex;
 }
+.invalid {
+    width: 100%;
+    color: red;
+    font-size: 1.2rem;
+    display: none;
+}

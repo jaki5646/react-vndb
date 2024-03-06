@@ -1,15 +1,52 @@
 import React, { useState } from 'react'
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useNavigate } from 'react-router-dom';
 import './Signing.css'
+import useFetch from './useFetch';
 
 const SignUp = () => {
-
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [invalid, setInvalid] = useState(false);
   const [repeatPassword, setRepeatPassword] = useState("");
+
+  const { data, error } = useFetch("https://dummyjson.com/users");
+  if(!localStorage.getItem('list-user') || localStorage.getItem('list-user') === 'undefined') {
+    localStorage.setItem('list-user', data && JSON.stringify(data?.users))
+  }
+
+  const register = (username, password, id) => {
+    try {
+      fetch("https://dummyjson.com/users/add", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username: username,
+          password: password,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          data.id = id
+          let dataUser = localStorage.getItem('list-user') || []
+          localStorage.setItem('list-user', JSON.stringify([...JSON.parse(dataUser), data]))
+          localStorage.setItem('logged-user', JSON.stringify(data))
+        });
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   const handleSignUp = (e) => {
     e.preventDefault();
+    if(username == "" || password == "" || repeatPassword != password) {
+      setInvalid(true)
+    }
+    else {
+      setInvalid(false)
+      register(username, password, JSON.parse(localStorage.getItem('list-user'))[JSON.parse(localStorage.getItem('list-user')).length - 1].id + 1);
+      navigate('/')
+    }
   };
 
 
@@ -76,6 +113,7 @@ const SignUp = () => {
         <button type="submit" onClick={handleSignUp}>
           Sign up
         </button>
+        <p className='invalid' style={invalid ? {display: 'block'} : {display: 'none'}}>Invalid input</p>
       </div>
       <div className="form-footer">
         <p>Already a member?&nbsp;</p>

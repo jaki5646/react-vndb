@@ -9,7 +9,8 @@ import { AppProvider } from "./App";
 import "./Header.css";
 
 const Header = () => {
-  const isLogin = useContext(AppProvider);
+  const isLogin = localStorage.getItem("logged-user") !== null;
+  console.log(isLogin);
 
   const [input, setInput] = useState("");
   const [search, setSearch] = useState("");
@@ -21,6 +22,10 @@ const Header = () => {
     inputFocus.current.focus();
     setSearch(input);
   };
+  const handleLogout = () => {
+    localStorage.removeItem('logged-user')
+    window.location.reload(true);
+  }
 
   return (
     <div className="header">
@@ -123,7 +128,16 @@ const Header = () => {
                 </Link>
               </>
             ) : (
-              <div>hi</div>
+              <div className="header-bottom-dropdown">
+                <button className="dropbtn avatar-drop">
+                  <img src="/src/assets/reimu.ico" alt="s" className="avatar"/>
+                </button>
+                <div className="dropdown-content">
+                  <div className="nav-dropdown nav-dropdown-username">{JSON.parse(localStorage.getItem("logged-user")).username}</div>
+                  <Link className={`nav-dropdown`}>Cart</Link>
+                  <button className={`nav-dropdown nav-dropdown-btn`} onClick={handleLogout}>Log out</button>
+                </div>
+              </div>
             )}
           </div>
         </div>

@@ -87,7 +87,7 @@
 .header-bottom-dropdown:hover .dropbtn,
 .header-bottom-redirect:hover {
   cursor: pointer;
-  background-color: red;
+  opacity: .83;
 }
 .dropdown-content {
   display: none;
@@ -143,9 +143,32 @@
   font-size: 1.5rem;
   cursor: pointer;
 }
-.header-bottom-login form{
-  height: 100%;
+.header-bottom-login{
+  max-height: 52px;
 }
 .header-bottom-login a {
   display: block;
+}
+.avatar-drop {
+  padding: 0 !important;
+}
+.avatar {
+  display: block;
+  width: 52px;
+  height: 52px;
+}
+.header-bottom-login>.header-bottom-dropdown:hover .dropdown-content{
+  margin-top: -4px;
+}
+.nav-dropdown-btn {
+  border: none;
+  background: red;
+  font-size: 1rem;
+  width: 100%;
+}
+.nav-dropdown-btn:hover {
+  opacity: .83;
+}
+.nav-dropdown-username:hover {
+  cursor: default;
 }
