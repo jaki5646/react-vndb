@@ -1,21 +1,29 @@
 import React from "react";
 import "./Home.css";
+import { Link } from "react-router-dom";
 
-const Explore = ({ props }) => {
-  props && console.log(props)
+const Explore = ({ props, onClick }) => {
+  // props && console.log(props)
 
   return !props ? (
-    <p>Unreachable</p>
+    <div>Unreachable</div>
   ) : (
-    props.map((i) => (
-      <div className="explore-component" key={i.id}>
+    <Link to={`/vn/${props.id}`}>
+      <div
+        className="explore-component"
+        onClick={() => {
+          onClick(props);
+        }}
+      >
         <img
-          src={`https://t.vndb.org/cv/${i.image.id.slice(
+          src={`https://t.vndb.org/cv/${props.image.id.slice(
             -2
-          )}/${i.image.id.slice(2)}.jpg`}
+          )}/${props.image.id.slice(2)}.jpg`}
+          draggable={"false"}
         ></img>
+        <h3>{props.title}</h3>
       </div>
-    ))
+    </Link>
   );
 };
 

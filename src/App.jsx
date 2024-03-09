@@ -7,6 +7,7 @@ import NotFound from "./components/NotFound";
 import "./App.css";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
+import Detail from "./components/Detail";
 
 const kana = new Kana({
   baseURL: "https://api.vndb.org/kana",
@@ -35,6 +36,7 @@ function App() {
           <Route path='/sign-up' element={<SignUp/>}></Route>
           <Route path='/sign-in' element={<SignIn/>}></Route>
           <Route path='*' element={<NotFound/>}></Route>
+          <Route path="/vn/:id" element={<Detail/>}></Route>
         </Routes>
       </AppProvider.Provider>
     </>
