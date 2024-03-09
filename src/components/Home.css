@@ -32,3 +32,22 @@
 .slick-next:before {
   color: gray;
 }
+.home-page-child {
+  width: 100%;
+  padding: 0 115px;
+  display: flex;
+  gap: 20px;
+}
+.tag-vn {
+  width: 80%;
+}
+.tag-title {
+  margin-top: 80px;
+  margin-bottom: -80px;
+}
+.favorited-brands {
+  width: 20%;
+}
+.slider-child {
+  max-height: 450px;
+}
