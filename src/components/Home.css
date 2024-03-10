@@ -37,6 +37,7 @@
   padding: 0 115px;
   display: flex;
   gap: 20px;
+  justify-content: space-between;
 }
 .tag-vn {
   width: 80%;
@@ -46,8 +47,24 @@
   margin-bottom: -80px;
 }
 .favorited-brands {
-  width: 20%;
+  margin-top: 100px;
+  min-width: 200px;
+  max-width: 200px;
+}
+.favorited-brands h3 {
+  text-align: end;
 }
 .slider-child {
   max-height: 450px;
+}
+.favorited-brands a {
+  display: block;
+  margin-top: 40px;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+}
+.producer-component img {
+  display: block;
+  width: 200px;
+  max-width: 200px;
+  object-fit: cover;
 }

@@ -1,0 +1,45 @@
+.loading-icon {
+  margin: 2rem 0 0 50%;
+  transform: translateX(-50%);
+}
+.detail {
+  padding: 0 115px;
+  margin-top: 5rem;
+}
+.detail-top {
+  display: flex;
+  gap: 100px;
+}
+.detail-left {
+  display: block;
+  min-width: 25%;
+  margin-left: 150px;
+}
+.detail-left .detail-img {
+  min-width: 100%;
+  object-fit: cover;
+}
+.detail-title {
+  color: gray;
+}
+.detail-right h2, .detail-right p {
+  margin-top: 12px;
+}
+.developer-name {
+  color: rgb(128, 209, 236);
+}
+.bottom-big-image {
+  text-align: center;
+  max-width: 100%;
+  margin: 40px 0;
+}
+.bottom-big-image img {
+  width: 70%;
+  max-width: 70%;
+}
+.slide-img {
+  cursor: pointer;
+}
+.description a {
+  text-decoration: none;
+}

@@ -3,6 +3,7 @@ import Kana from "vndb-api-kana";
 import Explore from "./Explore";
 import "./Home.css";
 import Slider from "react-slick";
+import Producer from "./Producer";
 
 export const kana = new Kana({
   baseURL: "https://api.vndb.org/kana",
@@ -41,6 +42,7 @@ const Home = () => {
           "screenshots.sexual",
           "tags.category",
           "developers.id",
+          "length_minutes"
         ],
       })
       .then((res) => {
@@ -55,7 +57,8 @@ const Home = () => {
     // developers
     kana.apis
     .getProducer({
-      filters: ["id", "=", "p24"]
+      filters: ["or", ["id", "=", "p24"], ["id", "=", "p7496"], ["id", "=", "p336"], ["id", "=", "p6"], ["id", "=", "p259"], ["id", "=", "p10"]],
+      fields: ["name", "id", "type", "description"]
     })
     .then((res) => [
       setDev(res.results)
@@ -64,7 +67,6 @@ const Home = () => {
       console.log(e)
     })
   }, []);
-  console.log(dev)
 
   // romance
   let arrRomance = getNovel("tag", "=", "g64").result;
@@ -128,6 +130,10 @@ const Home = () => {
   const handleElement = (props) => {
     console.log(props);
   };
+  
+  const handleDev = (props) => {
+    console.log(props)
+  }
 
   return (
     <>
@@ -236,7 +242,10 @@ const Home = () => {
             </div>
           </div>
           <div className="favorited-brands">
-            
+            <h3>Popular brands</h3>
+            {dev.map(i => {
+              return <Producer key={i.id} props={i} onClick={handleDev} className='producer'/>
+            })}
           </div>
         </div>
       </div>
