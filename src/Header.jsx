@@ -10,7 +10,6 @@ import "./Header.css";
 
 const Header = () => {
   const isLogin = localStorage.getItem("logged-user") !== null;
-  console.log('isLogin:', isLogin);
   const navigate = useNavigate();
 
   const [input, setInput] = useState("");
