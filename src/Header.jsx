@@ -1,5 +1,5 @@
 import React, { useContext, useRef, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate, useParams } from "react-router-dom";
 import Home from "./components/Home";
 import { IoIosArrowDown } from "react-icons/io";
 import { FaFacebookF } from "react-icons/fa";
@@ -11,16 +11,20 @@ import "./Header.css";
 const Header = () => {
   const isLogin = localStorage.getItem("logged-user") !== null;
   console.log('isLogin:', isLogin);
+  const navigate = useNavigate();
 
   const [input, setInput] = useState("");
-  const [search, setSearch] = useState("");
+  // const [search, setSearch] = useState("");
 
   const inputFocus = useRef();
 
   const handleClick = (e) => {
     e.preventDefault();
-    inputFocus.current.focus();
-    setSearch(input);
+    // inputFocus.current.focus();
+    // setSearch(input);
+    if(input.trim()){
+      navigate(`/search?key=${input}`)
+    }
   };
   const handleLogout = () => {
     localStorage.removeItem('logged-user')
@@ -78,7 +82,9 @@ const Header = () => {
               Thể loại <IoIosArrowDown className="nav-arrow" />
             </button>
             <div className="dropdown-content">
-              <Link className={`nav-dropdown`}>Visual Novels</Link>
+              <Link className={`nav-dropdown`}>Romance</Link>
+              <Link className={`nav-dropdown`}>Fantasy</Link>
+              <Link className={`nav-dropdown`}>Action</Link>
             </div>
           </div>
 

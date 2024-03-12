@@ -10,6 +10,7 @@ import SignUp from "./components/SignUp";
 import Detail from "./components/Detail";
 import Producer from "./components/Producer";
 import ProducerInfo from "./components/ProducerInfo";
+import Search from "./components/Search";
 
 const kana = new Kana({
   baseURL: "https://api.vndb.org/kana",
@@ -40,6 +41,7 @@ function App() {
           <Route path='*' element={<NotFound/>}></Route>
           <Route path="/vn/:id" element={<Detail/>}></Route>
           <Route path="/producer/:id" element={<ProducerInfo/>}></Route>
+          <Route path="/search" element={<Search/>}></Route>
         </Routes>
       </AppProvider.Provider>
     </>
