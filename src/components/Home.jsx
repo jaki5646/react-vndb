@@ -19,7 +19,7 @@ const Home = () => {
   const [comedy, setComedy] = useState([]);
   const [horror, setHorror] = useState([]);
   const [action, setAction] = useState([]);
-  const [dev, setDev] = useState([])
+  const [dev, setDev] = useState([]);
 
   useEffect(() => {
     setLoading(true);
@@ -42,7 +42,7 @@ const Home = () => {
           "screenshots.sexual",
           "tags.category",
           "developers.id",
-          "length_minutes"
+          "length_minutes",
         ],
       })
       .then((res) => {
@@ -56,16 +56,22 @@ const Home = () => {
 
     // developers
     kana.apis
-    .getProducer({
-      filters: ["or", ["id", "=", "p24"], ["id", "=", "p7496"], ["id", "=", "p336"], ["id", "=", "p6"], ["id", "=", "p259"], ["id", "=", "p10"]],
-      fields: ["name", "id", "type", "description"]
-    })
-    .then((res) => [
-      setDev(res.results)
-    ])
-    .catch((e) => {
-      console.log(e)
-    })
+      .getProducer({
+        filters: [
+          "or",
+          ["id", "=", "p24"],
+          ["id", "=", "p7496"],
+          ["id", "=", "p336"],
+          ["id", "=", "p6"],
+          ["id", "=", "p259"],
+          ["id", "=", "p10"],
+        ],
+        fields: ["name", "id", "type", "description"],
+      })
+      .then((res) => [setDev(res.results)])
+      .catch((e) => {
+        console.log(e);
+      });
   }, []);
 
   // romance
@@ -130,10 +136,10 @@ const Home = () => {
   const handleElement = (props) => {
     console.log(props);
   };
-  
+
   const handleDev = (props) => {
-    console.log(props)
-  }
+    console.log(props);
+  };
 
   return (
     <>
@@ -242,10 +248,19 @@ const Home = () => {
             </div>
           </div>
           <div className="favorited-brands">
-            <h3>Popular brands</h3>
-            {dev.map(i => {
-              return <Producer key={i.id} props={i} onClick={handleDev} className='producer'/>
-            })}
+            <div style={{position: "sticky", top: "10px"}}>
+              <h3>Popular brands</h3>
+              {dev.map((i) => {
+                return (
+                  <Producer
+                    key={i.id}
+                    props={i}
+                    onClick={handleDev}
+                    className="producer"
+                  />
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
