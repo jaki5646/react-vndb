@@ -20,7 +20,7 @@ const Explore = ({ props, onClick }) => {
             -2
           )}/${props.image.id.slice(2)}.jpg`}
           draggable={"false"}
-        ></img>
+        />
         <h3>{props.title}</h3>
       </div>
     </Link>

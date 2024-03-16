@@ -1,0 +1,37 @@
+.search-wrap {
+  display: grid;
+  width: calc(100% - 230px);
+  margin-left: 50%;
+  transform: translateX(-50%);
+  gap: 30px;
+  grid-template-columns: auto auto auto;
+}
+.search-component {
+  background: gray;
+  text-align: center;
+  max-width: 375px;
+}
+.img-wrap {
+  position: relative;
+  width: 375px;
+  height: 350px;
+}
+.search-component img {
+  display: block;
+  max-width: 375px;
+  max-height: 350px;
+  object-fit: cover;
+  margin: 0 auto;
+}
+.tall-img {
+  height: 100%;
+}
+.wide-img {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.tall-bg {
+    background-size: cover;
+}
