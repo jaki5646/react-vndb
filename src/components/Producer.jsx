@@ -9,7 +9,7 @@ const Producer = ({ props, onClick }) => {
     <Link to={`./public/img/${props.id}`}>
       <div className="producer-component">
         <img
-          src={`../src/assets/${props.name
+          src={`./public/img/${props.name
             .toLowerCase()
             .split(/[.\-=/_\s]/)
             .join("")}.png`}

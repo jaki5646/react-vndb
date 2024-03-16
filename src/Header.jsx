@@ -70,7 +70,7 @@ const Header = () => {
         <div className="header-bottom-left">
           <div className="header-bottom-logo">
             <Link to={"/"}>
-              <img src="../src/assets/logo.png" alt="" />
+              <img src="./public/img/logo.png" alt="" />
             </Link>
           </div>
 
