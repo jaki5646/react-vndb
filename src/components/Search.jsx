@@ -10,6 +10,7 @@ const Search = () => {
   const [searchData, setSearchData] = useState([])
   const [loading, setLoading] = useState(false)
   const data = param.get('key')
+  console.log(data)
 
 
   useEffect(() => {
@@ -33,7 +34,9 @@ const Search = () => {
           "screenshots.sexual",
           "tags.category",
           "developers.id",
-          "length_minutes"
+          "length_minutes",
+          "titles.title",
+          "description"
         ],
       })
       .then((res) => {
@@ -43,7 +46,7 @@ const Search = () => {
       .catch((e) => {
         console.log(e);
       });
-  }, []);
+  }, [data]);
   
   return !!loading ? (<PuffLoader color="#e57cb9" className='loading-icon' />) :
     !loading && searchData.length > 0 ? (
