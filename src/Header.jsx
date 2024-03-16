@@ -21,9 +21,7 @@ const Header = () => {
     e.preventDefault();
     // inputFocus.current.focus();
     // setSearch(input);
-    if(input.trim()){
-      navigate(`/search?key=${input}`)
-    }
+    navigate(`/search?key=${input}`)
   };
   const handleLogout = () => {
     localStorage.removeItem('logged-user')
@@ -70,7 +68,7 @@ const Header = () => {
         <div className="header-bottom-left">
           <div className="header-bottom-logo">
             <Link to={"/"}>
-              <img src="./public/img/logo.png" alt="" />
+              <img src="/img/logo.png" alt="" />
             </Link>
           </div>
 
@@ -135,7 +133,7 @@ const Header = () => {
             ) : (
               <div className="header-bottom-dropdown">
                 <button className="dropbtn avatar-drop">
-                  <img src="./public/img/reimu.ico" alt="s" className="avatar"/>
+                  <img src="/img/reimu.ico" alt="s" className="avatar"/>
                 </button>
                 <div className="dropdown-content">
                   <div className="nav-dropdown nav-dropdown-username">{JSON.parse(localStorage.getItem("logged-user")).username}</div>
