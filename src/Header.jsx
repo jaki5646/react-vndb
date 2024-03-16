@@ -135,7 +135,7 @@ const Header = () => {
             ) : (
               <div className="header-bottom-dropdown">
                 <button className="dropbtn avatar-drop">
-                  <img src="/src/assets/reimu.ico" alt="s" className="avatar"/>
+                  <img src="./public/img/reimu.ico" alt="s" className="avatar"/>
                 </button>
                 <div className="dropdown-content">
                   <div className="nav-dropdown nav-dropdown-username">{JSON.parse(localStorage.getItem("logged-user")).username}</div>
