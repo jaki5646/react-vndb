@@ -7,13 +7,15 @@
   margin-top: 5rem;
 }
 .detail-top {
+  align-items: center;
   display: flex;
-  gap: 100px;
+  padding: 0 50px;
 }
 .detail-left {
   display: block;
-  min-width: 25%;
-  margin-left: 150px;
+  min-width: 200px;
+  margin-right: 20px;
+  flex-shrink: 0;
 }
 .detail-left .detail-img {
   min-width: 100%;
