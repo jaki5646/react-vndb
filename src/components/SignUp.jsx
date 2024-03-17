@@ -66,7 +66,7 @@ const SignUp = () => {
               : ""
           }
         >
-          Sign up
+          Sign in
         </NavLink>
         <NavLink
           to={"/sign-up"}

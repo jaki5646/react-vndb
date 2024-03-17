@@ -12,6 +12,7 @@
   padding: 0 50px;
 }
 .detail-left {
+  align-items: start;
   display: block;
   min-width: 200px;
   margin-right: 20px;
