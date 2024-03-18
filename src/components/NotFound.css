@@ -1,0 +1,29 @@
+.notfound {
+  margin-top: 100px;
+  color: #777;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.notfound > h1 {
+  font-size: 10rem;
+}
+.notfound-second {
+  display: flex;
+}
+.notfound-second img {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.notfound a {
+  text-decoration: none;
+  color: #e67c73;;
+}
+.notfound a:hover {
+    text-decoration: underline;
+}
+.notfound a:visited {
+  color: #e67c73;;
+}
