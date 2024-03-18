@@ -22,7 +22,6 @@ const SearchItem = ({ props, onClick }) => {
       : dimensions?.height >= (dimensions?.width * 350) / 375
       ? "tall-bg"
       : "wide-bg";
-  console.log(props);
   const convertTagsToHtml = (text) => {
     // Chuyển [b] thành <b> và [/b] thành </b>, chuyển [url] => <a>
     const regex = /\[url=(.*?)\](.*?)\[\/url\]/g;

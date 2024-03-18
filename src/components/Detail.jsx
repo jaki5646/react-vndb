@@ -5,8 +5,10 @@ import { PuffLoader } from "react-spinners";
 import "./Detail.css";
 import DetailImg from "./DetailImg";
 import Slider from "react-slick";
+import useWindowDimensions from "./useWindowDimensions";
 
 const Detail = () => {
+  const { height, width } = useWindowDimensions();
   const params = useParams();
   const [result, setResult] = useState();
   const [loading, setLoading] = useState(false);
@@ -65,10 +67,10 @@ const Detail = () => {
     setScreenshot(e.target.src);
   };
 
-  const settings = {
+  let settings = {
     infinite: true,
-    slidesToShow: 5,
-    slidesToScroll: 5,
+    slidesToShow: width <= 992 ? 3 : 4,
+    slidesToScroll: 4,
     autoplay: false,
     speed: 1000,
   };
@@ -86,8 +88,8 @@ const Detail = () => {
   return loading ? (
     <PuffLoader color="#e57cb9" className="loading-icon" />
   ) : !loading && result !== undefined ? (
-    <div className="detail">
-      <div className="detail-top">
+    <div className="detail" style={{padding: width <= 992 && '0 20px'}}>
+      <div className="detail-top" style={{flexDirection: width <= 992 && 'column'}}>
         <div className="detail-left">
           <img
             className="detail-img"
@@ -179,7 +181,7 @@ const Detail = () => {
             alt=""
           />
         </div>
-        <Slider {...settings}>
+        <Slider {...settings} className="slide-imgs">
           {screenshots.map((e, i) => (
             <img
               key={i}

@@ -4,12 +4,14 @@ import Explore from "./Explore";
 import "./Home.css";
 import Slider from "react-slick";
 import Producer from "./Producer";
+import useWindowDimensions from "./useWindowDimensions";
 
 export const kana = new Kana({
   baseURL: "https://api.vndb.org/kana",
 });
 
 const Home = () => {
+  const { height, width } = useWindowDimensions();
   const [loading, setLoading] = useState(false);
   const [recommend, setRecommend] = useState([]);
   const [romance, setRomance] = useState([]);
@@ -116,7 +118,7 @@ const Home = () => {
     setAction(arrAction);
   }, [arrAction]);
 
-  const settings = {
+  let settings = {
     infinite: true,
     slidesToShow: 4,
     slidesToScroll: 1,
@@ -125,21 +127,29 @@ const Home = () => {
     autoplaySpeed: 3000,
     cssEase: "linear",
   };
-  const settingsComponent = {
+  let settingsComponent = {
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: false,
     speed: 1000,
   };
-
-  const handleElement = (props) => {
-    console.log(props);
-  };
-
-  const handleDev = (props) => {
-    console.log(props);
-  };
+  if(width >= 1300) {
+    settings.slidesToShow = 4;
+    settingsComponent.slidesToScroll = 3
+  }
+  else if(width >= 992) {
+    settings.slidesToShow = 3
+    settingsComponent.slidesToShow = 2
+  }
+  else if(width >= 762) {
+    settings.slidesToShow = 2
+    settingsComponent.slidesToShow = 1
+  }
+  else if(width < 762) {
+    settings.slidesToShow = 1
+    settingsComponent.slidesToShow = 1
+  }
 
   return (
     <>
@@ -149,7 +159,7 @@ const Home = () => {
         <div className="explore">
           <Slider {...settings} className="slider">
             {recommend.map((i) => {
-              return <Explore key={i.id} props={i} onClick={handleElement} />;
+              return <Explore key={i.id} props={i} />;
             })}
           </Slider>
         </div>
@@ -163,7 +173,7 @@ const Home = () => {
               <Slider {...settingsComponent} className="slider slider-child">
                 {romance.map((i) => {
                   return (
-                    <Explore key={i.id} props={i} onClick={handleElement} />
+                    <Explore key={i.id} props={i} />
                   );
                 })}
               </Slider>
@@ -176,7 +186,7 @@ const Home = () => {
               <Slider {...settingsComponent} className="slider slider-child">
                 {drama.map((i) => {
                   return (
-                    <Explore key={i.id} props={i} onClick={handleElement} />
+                    <Explore key={i.id} props={i} />
                   );
                 })}
               </Slider>
@@ -189,7 +199,7 @@ const Home = () => {
               <Slider {...settingsComponent} className="slider slider-child">
                 {fantasy.map((i) => {
                   return (
-                    <Explore key={i.id} props={i} onClick={handleElement} />
+                    <Explore key={i.id} props={i} />
                   );
                 })}
               </Slider>
@@ -202,7 +212,7 @@ const Home = () => {
               <Slider {...settingsComponent} className="slider slider-child">
                 {scifi.map((i) => {
                   return (
-                    <Explore key={i.id} props={i} onClick={handleElement} />
+                    <Explore key={i.id} props={i} />
                   );
                 })}
               </Slider>
@@ -215,7 +225,7 @@ const Home = () => {
               <Slider {...settingsComponent} className="slider slider-child">
                 {comedy.map((i) => {
                   return (
-                    <Explore key={i.id} props={i} onClick={handleElement} />
+                    <Explore key={i.id} props={i} />
                   );
                 })}
               </Slider>
@@ -228,7 +238,7 @@ const Home = () => {
               <Slider {...settingsComponent} className="slider slider-child">
                 {horror.map((i) => {
                   return (
-                    <Explore key={i.id} props={i} onClick={handleElement} />
+                    <Explore key={i.id} props={i} />
                   );
                 })}
               </Slider>
@@ -241,13 +251,13 @@ const Home = () => {
               <Slider {...settingsComponent} className="slider slider-child">
                 {action.map((i) => {
                   return (
-                    <Explore key={i.id} props={i} onClick={handleElement} />
+                    <Explore key={i.id} props={i} />
                   );
                 })}
               </Slider>
             </div>
           </div>
-          <div className="favorited-brands">
+          <div className="favorited-brands" style={{display: width <= 700 && "none"}}>
             <div style={{position: "sticky", top: "10px"}}>
               <h3>Popular brands</h3>
               {dev.map((i) => {
@@ -255,7 +265,6 @@ const Home = () => {
                   <Producer
                     key={i.id}
                     props={i}
-                    onClick={handleDev}
                     className="producer"
                   />
                 );

@@ -2,6 +2,7 @@
   overflow: hidden;
 }
 .header-top {
+  align-items: center;
   background: #ffb4ad;
   padding: 0 115px;
   display: flex;
@@ -25,7 +26,6 @@
   display: block;
   border: none;
   color: white;
-  padding-top: 9px;
   text-decoration: none;
 }
 .header-top-left li a:hover {
@@ -71,6 +71,9 @@
 .header-bottom-dropdown {
   float: left;
   overflow: hidden;
+}
+.dropbtn {
+  display: flex;
 }
 .dropbtn,
 .header-bottom-redirect {
