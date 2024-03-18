@@ -156,7 +156,7 @@ const Home = () => {
       <div className="home-page">
         <h1 className="explore-title">Recommended Visual Novels by fanbase</h1>
 
-        <div className="explore">
+        <div className="explore" style={{padding: width <= 762 ? "0" : "0 115px"}}>
           <Slider {...settings} className="slider">
             {recommend.map((i) => {
               return <Explore key={i.id} props={i} />;
