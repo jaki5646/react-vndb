@@ -14,6 +14,7 @@ import About from "./components/About";
 import Footer from "./Footer";
 import SearchTag from "./components/SearchTag";
 import SearchDevice from "./components/SearchDevice";
+import Rating from "./components/Rating";
 
 const kana = new Kana({
   baseURL: "https://api.vndb.org/kana",
@@ -48,6 +49,7 @@ function App() {
           <Route path="/about" element={<About/>}></Route>
           <Route path="/tag" element={<SearchTag/>}></Route>
           <Route path="/platform" element={<SearchDevice/>}></Route>
+          <Route path="/rating" element={<Rating/>}></Route>
         </Routes>
         <Footer></Footer>
       </AppProvider.Provider>
