@@ -1,5 +1,7 @@
 .sign-wrap {
-    min-height: 80vh;
+    min-height: 100vh;
+    background: url('./img/background.png');
+    padding-top: 2rem;
 }
 .signing-form {
     display: block;
@@ -8,11 +10,12 @@
     border: 3px solid pink;
     border-radius: .5rem;
     transform: translateX(-50%);
-    margin-top: 2rem;
     text-align: center;
     padding: 1rem 1rem .5rem;
+    backdrop-filter: blur(10px);
 }
 .signing-form label {
+    color: white;
     font-size: 2.5rem;
 }
 .signing-form a {
@@ -74,9 +77,21 @@ a.active {
     margin-top: 2rem;
     display: flex;
 }
+.form-footer p {
+    color: white;
+}
 .invalid {
     width: 100%;
     color: red;
     font-size: 1.2rem;
     display: none;
+}
+.input-name, .input-password, .input-repeat-password {
+    position: relative;
+}
+.input-icon {
+    position: absolute;
+    right: 10px;
+    top: 1.2rem;
+    color: gray;
 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import "./Signing.css";
 import useFetch from "./useFetch";
+import { FaLock, FaUnlock, FaUser } from "react-icons/fa";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -102,6 +103,7 @@ const SignUp = () => {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
+            <FaUser className="input-icon"/>
           </div>
           <div className="input-password">
             <input
@@ -110,6 +112,7 @@ const SignUp = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            <FaUnlock className="input-icon"/>
           </div>
           <div className="input-repeat-password">
             <input
@@ -118,6 +121,7 @@ const SignUp = () => {
               value={repeatPassword}
               onChange={(e) => setRepeatPassword(e.target.value)}
             />
+            <FaLock className="input-icon"/>
           </div>
         </div>
         <div className="form-button">

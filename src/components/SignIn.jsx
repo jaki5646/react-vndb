@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { NavLink, Link, json, redirect, useNavigate } from "react-router-dom";
 import "./Signing.css";
 import useFetch from "./useFetch.jsx";
+import { FaLock, FaUser } from "react-icons/fa";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -76,6 +77,7 @@ const SignIn = () => {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
+            <FaUser className="input-icon"/>
           </div>
           <div className="input-password">
             <input
@@ -84,6 +86,7 @@ const SignIn = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            <FaLock className="input-icon"/>
           </div>
         </div>
         <Link className="form-forgot">Forgot password?</Link>

@@ -83,7 +83,7 @@ const Header = () => {
           <div className="header-bottom-nav-left" style={{display: hbdResponsive}}>
             <div className={`header-bottom-dropdown`}>
               <button className="dropbtn">
-                Thể loại <IoIosArrowDown className="nav-arrow" />
+                Type <IoIosArrowDown className="nav-arrow" />
               </button>
               <div className="dropdown-content">
                 <Link className={`nav-dropdown`} to={'/tag?key=g64'}>Romance</Link>
@@ -94,7 +94,7 @@ const Header = () => {
 
             <div className="header-bottom-dropdown">
               <button className="dropbtn">
-                Hệ máy <IoIosArrowDown className="nav-arrow" />
+                Platform <IoIosArrowDown className="nav-arrow" />
               </button>
               <div className="dropdown-content">
                 <Link className={`nav-dropdown`} to={'/platform?key=win'}>PC</Link>
