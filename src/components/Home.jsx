@@ -62,7 +62,7 @@ const Home = () => {
         filters: [
           "or",
           ["id", "=", "p24"],
-          ["id", "=", "p7496"],
+          ["id", "=", "p328"],
           ["id", "=", "p336"],
           ["id", "=", "p6"],
           ["id", "=", "p259"],
@@ -163,7 +163,7 @@ const Home = () => {
             })}
           </Slider>
         </div>
-        <div className="home-page-child">
+        <div className="home-page-child" style={{padding: width > 500 ? "0 115px" : width>= 400 ? "0 90px" : width >= 300 ? "0 20px" : "0 5px"}}>
           <div className="tag-vn">
             <div className="tag-romance">
               <div className="tag-title">

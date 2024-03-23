@@ -41,6 +41,7 @@ const Detail = () => {
         // filter nsfw contents
         setResult(res.results[0]);
         setLoading(false);
+        console.log(res.results[0])
       })
       .catch((e) => {
         console.log(e);
@@ -59,11 +60,9 @@ const Detail = () => {
     hours = Math.floor(result.length_minutes / 60);
     minutes = result.length_minutes % 60;
     screenshots = result.screenshots.filter((i) => i.sexual === 0);
-    console.log(JSON.stringify(result.description));
   }
 
   const handleImage = (e) => {
-    console.log(e.target.className);
     setScreenshot(e.target.src);
   };
 
@@ -82,11 +81,17 @@ const Detail = () => {
     return text
       .replace(/\[b\]/g, "<b>")
       .replace(/\[\/b\]/g, "</b>")
+      .replace(/\[i\]/g, "<i>")
+      .replace(/\[\/i\]/g, "</i>")
+      .replace(/\[u\]/g, "<u>")
+      .replace(/\[\/u\]/g, "</u>")
       .replace(regex, "<a href='$1'>$2</a>");
   };
 
   return loading ? (
-    <PuffLoader color="#e57cb9" className="loading-icon" />
+    <div className="loading-wrap">
+      <PuffLoader color="#e57cb9" className="loading-icon" />
+    </div>
   ) : !loading && result !== undefined ? (
     <div className="detail" style={{padding: width <= 992 && '0 20px'}}>
       <div className="detail-top" style={{flexDirection: width <= 992 && 'column'}}>
@@ -161,11 +166,11 @@ const Detail = () => {
           <div className="description"><p style={{ whiteSpace: "pre-line" }} dangerouslySetInnerHTML={{ __html: convertTagsToHtml(`Description:\n\n${result.description}`) }}></p></div>
         </div>
       </div>
-      <div className="detail-bottom">
+      <div className="detail-bottom" style={{display: result.screenshots.length > 0 ? 'block' : 'none'}}>
         <div className="bottom-big-image">
           <img
             src={
-              screenshot === undefined
+              screenshot === undefined && result.screenshots.length > 0
                 ? `https://t.vndb.org/${screenshots[0].id
                     .split("")
                     .reverse()
@@ -201,7 +206,9 @@ const Detail = () => {
       </div>
     </div>
   ) : (
-    <p>Failed to fetch details</p>
+    <div className="no-result-wrap">
+      <p>Failed to fetch details</p>
+    </div>
   );
 };
 

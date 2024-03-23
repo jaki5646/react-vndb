@@ -1,0 +1,9 @@
+.about-wrap {
+    min-height: 100vh;
+}
+.about-wrap p {
+    text-align: center;
+    padding: 150px 0;
+    font-size: 3.5rem;
+    color: rgb(169, 169, 169);
+}

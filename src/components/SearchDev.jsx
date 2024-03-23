@@ -1,22 +1,33 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { kana } from "./Home";
-import SearchItem from "./SearchItem";
 import { PuffLoader } from "react-spinners";
-import "./Search.css";
 import useWindowDimensions from "./useWindowDimensions";
+import "./Search.css";
+import SearchItem from "./SearchItem";
+import axios from "axios";
 
-const Search = () => {
+const baseURL = "https://api.vndb.org/kana/";
+const AUTH_TOKEN = "token himo-ytq7i-nyyj1-jb8y-goonj-e7at4-6you";
+
+const SearchDev = () => {
   const [param] = new useSearchParams();
+  const data = param.get("key");
   const [searchData, setSearchData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const data = param.get("key");
+  const [dev, getDev] = useState("");
   const { width, height } = useWindowDimensions();
+
+  const instance = axios.create({
+    baseURL: baseURL,
+    timeout: 5000,
+    headers: { "Content-Type": "application/json", Authorization: AUTH_TOKEN },
+  });
 
   useEffect(() => {
     setLoading(true);
-    kana.apis
-      .getVn({
+    instance
+      .post("vn", {
         filters: ["search", "=", data],
         results: 50,
         fields: [
@@ -37,21 +48,29 @@ const Search = () => {
           "titles.title",
           "description",
           "developers.name",
-        ],
+        ].join(", "),
       })
       .then((res) => {
-        setSearchData(res.results.filter((i) => i.image?.sexual === 0));
+        let resultArr = [];
+        const sorted = res.data.results.map((e) =>
+          e.developers.filter(
+            (i) => i.name.toLowerCase() === data.toLowerCase()
+          )
+        );
+        const indexArr = sorted
+          .map((e, i) => (e.length > 0 ? i : undefined))
+          .filter((x) => x);
+        for (let i = 0; i < indexArr.length; i++) {
+          resultArr.push(res.data.results[indexArr[i]]);
+        }
+        setSearchData(resultArr.filter((i) => i.image?.sexual === 0));
         setLoading(false);
       })
-      .catch((e) => {
-        console.log(e);
-      });
+      .catch((e) => console.log(e));
   }, [data]);
 
   return !!loading ? (
-    <div className="loading-wrap">
-      <PuffLoader color="#e57cb9" className="loading-icon" />
-    </div>
+    <PuffLoader color="#e57cb9" className="loading-icon" />
   ) : !loading && searchData.length > 0 ? (
     <div
       className="search-wrap"
@@ -65,10 +84,8 @@ const Search = () => {
       ))}
     </div>
   ) : (
-    <div className="no-result-wrap">
-      <p className="no-result">Result not found</p>
-    </div>
+    <p className="no-result">Result not found</p>
   );
 };
 
-export default Search;
+export default SearchDev;

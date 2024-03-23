@@ -42,6 +42,11 @@ const Header = () => {
               </Link>
             </li>
             <li>
+              <Link className="left-logo" to={"/about"}>
+                ABOUT US
+              </Link>
+            </li>
+            <li>
               <a href="https://discord.gg/hoshivn" className="header-discord">
                 LIÊN HỆ DISCORD
               </a>
@@ -81,9 +86,9 @@ const Header = () => {
                 Thể loại <IoIosArrowDown className="nav-arrow" />
               </button>
               <div className="dropdown-content">
-                <Link className={`nav-dropdown`}>Romance</Link>
-                <Link className={`nav-dropdown`}>Fantasy</Link>
-                <Link className={`nav-dropdown`}>Action</Link>
+                <Link className={`nav-dropdown`} to={'/tag?key=g64'}>Romance</Link>
+                <Link className={`nav-dropdown`} to={'/tag?key=g2'}>Fantasy</Link>
+                <Link className={`nav-dropdown`} to={'/tag?key=g12'}>Action</Link>
               </div>
             </div>
 
@@ -92,9 +97,9 @@ const Header = () => {
                 Hệ máy <IoIosArrowDown className="nav-arrow" />
               </button>
               <div className="dropdown-content">
-                <Link className={`nav-dropdown`}>PC</Link>
-                <Link className={`nav-dropdown`}>Android</Link>
-                <Link className={`nav-dropdown`}>Other</Link>
+                <Link className={`nav-dropdown`} to={'/platform?key=win'}>PC</Link>
+                <Link className={`nav-dropdown`} to={'/platform?key=and'}>Android</Link>
+                <Link className={`nav-dropdown`} to={`/platform?key=`}>Other</Link>
               </div>
             </div>
 

@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 80vh;
 }
 .notfound > h1 {
   font-size: 10rem;

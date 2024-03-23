@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useSearchParams } from "react-router-dom";
-import { kana } from "./Home";
-import SearchItem from "./SearchItem";
-import { PuffLoader } from "react-spinners";
 import "./Search.css";
+import { useSearchParams } from "react-router-dom";
 import useWindowDimensions from "./useWindowDimensions";
+import { kana } from "./Home";
+import { PuffLoader } from "react-spinners";
+import SearchItem from "./SearchItem";
 
-const Search = () => {
+const SearchTag = () => {
   const [param] = new useSearchParams();
   const [searchData, setSearchData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -17,7 +17,7 @@ const Search = () => {
     setLoading(true);
     kana.apis
       .getVn({
-        filters: ["search", "=", data],
+        filters: ["tag", "=", data],
         results: 50,
         fields: [
           "id",
@@ -71,4 +71,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default SearchTag;

@@ -115,3 +115,12 @@
   line-clamp: 4;
   -webkit-box-orient: vertical;
 }
+.no-result {
+  text-align: center;
+  margin-top: 150px;
+  font-size: 3.5rem;
+  color: gray;
+}
+.loading-wrap, .no-result-wrap {
+  min-height: 100vh;
+}

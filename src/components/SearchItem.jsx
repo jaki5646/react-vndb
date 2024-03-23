@@ -29,6 +29,10 @@ const SearchItem = ({ props, onClick }) => {
     return text
       .replace(/\[b\]/g, "<b>")
       .replace(/\[\/b\]/g, "</b>")
+      .replace(/\[i\]/g, "<i>")
+      .replace(/\[\/i\]/g, "</i>")
+      .replace(/\[u\]/g, "<u>")
+      .replace(/\[\/u\]/g, "</u>")
       .replace(regex, "<a href='$1'>$2</a>");
   };
 

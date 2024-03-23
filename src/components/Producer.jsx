@@ -6,7 +6,7 @@ const Producer = ({ props, onClick }) => {
   return !props ? (
     <p>Failed to load</p>
   ) : (
-    <Link to={`./public/img/${props.id}`}>
+    <Link to={`/producer/search?key=${props.name}`}>
       <div className="producer-component">
         <img
           src={`./img/${props.name
